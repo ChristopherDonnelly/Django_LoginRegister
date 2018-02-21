@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head>
+	    <meta charset="UTF-8"> 
+		<title>Login &amp; Reg | Success</title>
+	     {% load static %}  
+	        <link rel="stylesheet" href="{% static 'process_user_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Success! Welcome, {{ full_name }}!</h1>
+            <div id="content_layer"> 
+                <form action='/logout/' method='post'>
+                    {% csrf_token %} 
+                    <p class="red">Successfully {{ request.session.type }}!</p>
+                    <p>Name: {{ full_name }}</p>
+                    <p>Email: {{ email }}</p>
+					<span>
+	                    <input type='submit' value='Back'>
+					</span>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
